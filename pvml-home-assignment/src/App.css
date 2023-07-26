@@ -5,3 +5,27 @@
   flex-direction: column;
   margin: 50px auto;
 }
+
+.url-input {
+  position: relative;
+  min-height: 23px;
+  width: auto;
+  background-color: #232323;
+  border-radius: 10px;
+  margin-top: 5px;
+  color: white;
+  font-family: "Fira code", "Fira Mono", monospace;
+  border: 2px solid rgba(17,133,140,1);
+  padding: 7px 9px;
+  font-size: medium;
+}
+
+.url-input:focus-visible {
+  outline: none;
+}
+
+.tip {
+  color: rgb(182, 182, 182);
+  font-family: "Fira code", "Fira Mono", monospace;
+  font-size: small;
+}

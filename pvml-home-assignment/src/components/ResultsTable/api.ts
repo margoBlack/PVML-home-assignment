@@ -1,6 +1,7 @@
 import {faker} from '@faker-js/faker';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const SHOULD_FETCH_API = false;
 const MAX_LENGHT = 100; // you can try to change to bigger amount to see loader
 
 function createRandomUser() {
@@ -37,24 +38,28 @@ const columns = columnNames.map((column: string) => ({
     }
 }
   
-async function getFromApi(source: string, sql: string) {
-    const res = await fetch('/api/v1/execute', {
-        method: 'POST',
-        body: JSON.stringify({
-            source,
-            sql
+async function getFromApi(source: string, sql: string, apiUrl: string) {
+    try {
+        const res = await fetch('https://' + apiUrl, {
+            method: 'POST',
+            body: JSON.stringify({
+                source,
+                sql
+            })
         })
-    })
-    return res.json();
+        return res.json();
+    } catch (err: any) {
+        toast.error(err.message as string);
+        return [[]];
+    }
 }
 
 async function getMockedData() {
     return await getUsers();
 }
   
-export async function executeQuery(source: string, sql: string) {
-    const data = SHOULD_FETCH_API ? await getFromApi(source,
-            sql) : await getMockedData() ;
+export async function executeQuery(source: string, sql: string, apiUrl='') {
+    const data = apiUrl.length > 0 ? await getFromApi(source, sql, apiUrl) : await getMockedData() ;
 
     return transformResponse(data);
 }

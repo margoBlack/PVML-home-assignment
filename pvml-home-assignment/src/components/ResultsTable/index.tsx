@@ -16,25 +16,31 @@ const TableBlock = ({queryResult, isPending}: {queryResult: {columns: any[], dat
         }}>
         <div className={['table-container', isPending && 'centered-element'].join(' ')  }>
           {isPending ? <Loader /> :
-            <Table dataSource={dataSource} columns={columns} pagination={false}/>
+            <Table 
+              dataSource={dataSource}
+              columns={columns}
+              pagination={{ position: ['bottomCenter'], defaultPageSize: 10, showSizeChanger: true, pageSizeOptions: ['10', '50', '100']}}
+            />
           }
         </div>
         </ConfigProvider>
     );
 };
 
-export function ResultsTable({query, isPending, startTransition}: any): ReactElement {
+export function ResultsTable({query, isPending, startTransition, apiUrl}: any): ReactElement {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [queryResult, setQueryResult] = useState({columns: [], dataSource: []});
 
   useEffect(() => {
     (async () => {
-      setQueryResult(await executeQuery(activeTab, query) as any);
+      if(query) {
+        setQueryResult(await executeQuery(activeTab, query, apiUrl) as any);
+      }
   })()
-  }, [activeTab, query]);
+  }, [activeTab, query, apiUrl]);
 
   function handleChangeActiveTab(tab: string) {
-    startTransition(() => setActiveTab(tab))
+    startTransition(() => setActiveTab(tab));
 }
 
   return (
