@@ -1,7 +1,6 @@
 import { ReactElement } from 'react';
 import './styled.css';
-
-const tabs = ['MySQL', 'MySQL + PVML'];
+import { tabs } from '../../tabs';
 
 export function TabsContainer({activeTab, onTabChange}: any): ReactElement {
     return (
