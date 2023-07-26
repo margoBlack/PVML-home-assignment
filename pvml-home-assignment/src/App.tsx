@@ -10,7 +10,7 @@ function App() {
   );
   const [inputValue, setInputValue] = useState( `SELECT * FROM Users`);
 
-  function handleRun (value: string) {
+  function handleRun () {
     startTransition(() => setQuery(inputValue))
   }
 
