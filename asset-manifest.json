@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PVML-home-assignment/static/css/main.615986fc.css",
+    "main.js": "/PVML-home-assignment/static/js/main.a4b33614.js",
+    "static/js/787.596cc0a5.chunk.js": "/PVML-home-assignment/static/js/787.596cc0a5.chunk.js",
+    "index.html": "/PVML-home-assignment/index.html",
+    "main.615986fc.css.map": "/PVML-home-assignment/static/css/main.615986fc.css.map",
+    "main.a4b33614.js.map": "/PVML-home-assignment/static/js/main.a4b33614.js.map",
+    "787.596cc0a5.chunk.js.map": "/PVML-home-assignment/static/js/787.596cc0a5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.615986fc.css",
+    "static/js/main.a4b33614.js"
+  ]
+}
