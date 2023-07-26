@@ -14,8 +14,6 @@ function App() {
     startTransition(() => setQuery(inputValue))
   }
 
-  // About new input. This is where user can put url to api. !!! If it is empty, mocked data will be provided as example.
-
   return (
     <div className='main'>
       <ToastContainer
