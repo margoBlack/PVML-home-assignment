@@ -10,6 +10,23 @@ https://margoBlack.github.io/PVML-home-assignment
 - Retrived data will be displayed in table format. If there are a lot of records preloader will be shown. You can check this changing `MAX_LENGHT` in `src/components/ResultsTable/api.ts`
 - API calls is mocked for now with fake data. You can change `SHOULD_FETCH_API = true` in `src/components/ResultsTable/api.ts` to test your API in this playground.
 
+## Setup guide:
+Choose the directory to clone the project. Run the following command:
+
+<code>$ git clone https://github.com/margoBlack/PVML-home-assignment.git</code>
+
+Then, change the directory:
+
+<code>$ cd \pvml-home-assignment</code>
+
+Make sure that you have an npm and run:
+
+<code>$ npm i</code>
+
+<code>$ npm start</code>
+
+<strong>Ready!</strong>
+
 ## Available Scripts
 
 In the project directory, you can run:
