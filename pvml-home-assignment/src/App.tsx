@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState, useTransition } from 'react';
 import './App.css';
+import { InputQuery } from './components/InputQuery';
+import { ResultsTable } from './components/ResultsTable';
 
 function App() {
+  const [isPending, startTransition] = useTransition();
+  const [query, setQuery] = useState(
+      `SELECT * FROM Users`
+  );
+  const [inputValue, setInputValue] = useState( `SELECT * FROM Users`);
+
+  function handleRun (value: string) {
+    startTransition(() => setQuery(inputValue))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main'>
+      <InputQuery inputValue={inputValue} handleRun={handleRun} setInputValue={setInputValue} />
+      <ResultsTable query={query} isPending={isPending} startTransition={startTransition}/>
     </div>
   );
 }

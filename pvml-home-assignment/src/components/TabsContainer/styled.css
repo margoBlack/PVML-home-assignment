@@ -1,0 +1,29 @@
+.tabs-container{
+    display: flex;
+    flex-direction: row;
+    width: 415px;
+    height: 30px;
+    border-radius: 8px;
+    background-color: #232323;
+    font-size: 13px;
+    padding: 5px 3px;
+}
+.tab-button-not-active,
+.tab-button-active {
+    width: 50%;
+    font-size:large;
+    font-weight: 500;
+    font-family: "Fira code", "Fira Mono", monospace;
+    border-radius: 10px;
+    border: none;
+}
+
+.tab-button-not-active {
+    color: #848485;
+    background: none;
+}
+
+.tab-button-active {
+    color: white;
+    background: #11858C;
+}
